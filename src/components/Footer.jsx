@@ -56,7 +56,8 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="relative bg-[#f8e1bf] overflow-hidden">
+    <footer id="contact" className="relative bg-[#fff9f1fff9f1] overflow-hidden">
+      <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-8"></div>
       {/* Snow Effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
@@ -85,18 +86,18 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 via-purple-600 to-violet-600 rounded-xl flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-xl">AB</span>
+              <div className="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg group-hover:bg-white/20 transition-all duration-300">
+                <span className="font-bold text-lg bg-gradient-to-br from-cyan-300 to-purple-300 bg-clip-text text-transparent">AB</span>
               </div>
               <div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                <h3 className="text-2xl font-bold bg-cyan-400/85 bg-clip-text text-transparent">
                   Aditya Birajdar
                 </h3>
-                <p className="text-sm text-gray-600">MERN Stack Developer</p>
               </div>
             </div>
+            
             <p className="text-gray-700 mb-4 max-w-md">
-              Building innovative web solutions with modern technologies. 
+              Building innovative web solutions with modern technologies.
               Passionate about creating exceptional user experiences and writing clean, efficient code.
             </p>
             <div className="flex space-x-3">
@@ -151,8 +152,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent mb-8"></div>
+
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
@@ -178,16 +178,11 @@ const Footer = () => {
 
         {/* Back to Top Button */}
         <div className="mt-8 text-center">
-          <a
-            href="#home"
-            className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-            </svg>
-            <span>Back to Top</span>
-          </a>
-        </div>
+  <a href="#home" className="inline-flex items-center gap-2 font-mono text-sm text-gray-400 hover:text-green-400 transition-all duration-300">
+    <span className="text-green-400">➜</span>
+    <span className="hover:underline underline-offset-4">cd ~/home</span>
+  </a>
+</div>
       </div>
 
       {/* CSS for snow animation */}

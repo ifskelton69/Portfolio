@@ -23,14 +23,14 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#fff9f1]"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#fff9f1fff9f1]" //fff9f1
     >
-      {/* Snow Effect */}
+
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(50)].map((_, i) => (
+        {[...Array(30)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-1 h-1 bg-[#854726] rounded-full animate-snow"
+            className="absolute w-1 h-1 bg-blue-400/50 rounded-full animate-snow"
             style={{
               left: `${Math.random() * 100}%`,
               top: `-${Math.random() * 100}%`,
@@ -40,6 +40,7 @@ const Hero = () => {
           ></div>
         ))}
       </div>
+      
 
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -60,15 +61,15 @@ const Hero = () => {
             {/* Main Heading */}
             <div className="space-y-4 pt-6">
               <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-                <span className="block text-gray-800">Hi, I'm</span>
-                <span className="block bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
+                <span className="block text-gray-400">Hi, I'm</span>
+                <span className="block bg-gradient-to-r from-green-200-600 via-cyan-600 to-blue-600 bg-clip-text text-transparent animate-gradient">
                   Aditya Birajdar
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 font-medium">
+              <p className="text-xl md:text-2xl text-gray-400 font-medium">
                 MERN Stack Developer & Creative Problem Solver
               </p>
-              <p className="text-lg text-gray-500 max-w-xl">
+              <p className="text-lg text-gray-300 max-w-xl">
                 I craft beautiful, responsive web applications with modern technologies. 
                 Passionate about creating seamless user experiences and clean code.
               </p>
@@ -90,8 +91,8 @@ const Hero = () => {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               <a
-                href="https://github.com/ifskelton69"
-                className="group px-8 py-4 bg-[#12529ba5] text-white rounded-full font-semibold shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center space-x-2"
+                href="#projects"
+                className="group px-8 py-4 bg-[#1C7DF1] text-white rounded-full font-semibold shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 flex items-center space-x-2"
               >
                 <span>View My Work</span>
                 <svg
@@ -158,7 +159,7 @@ const Hero = () => {
                   />
                 </div>
               </div>
-              <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-xl flex items-center justify-center animate-float" style={{ animationDelay: '0s' }}>
+              <div className="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-blue-800 to-blue-900 rounded-2xl shadow-xl flex items-center justify-center animate-float" style={{ animationDelay: '0s' }}>
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                 </svg>
@@ -175,7 +176,7 @@ const Hero = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
 
       <style jsx>{`
@@ -195,16 +196,27 @@ const Hero = () => {
           0%, 100% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
         }
+          
         @keyframes snow {
-          0% { transform: translateY(0) translateX(0); }
-          100% { transform: translateY(100vh) translateX(50px); }
+          0% {
+            transform: translateY(0) translateX(0);
+          }
+          100% {
+            transform: translateY(100vh) translateX(50px);
+          }
         }
+
+        .animate-snow {
+          animation: snow linear infinite;
+        }
+        
         .animate-float { animation: float 3s ease-in-out infinite; }
         .animate-spin-slow { animation: spin-slow 20s linear infinite; }
         .animate-spin-reverse { animation: spin-reverse 15s linear infinite; }
         .animate-gradient { background-size: 200% 200%; animation: gradient 3s ease infinite; }
-        .animate-snow { animation: snow linear infinite; }
       `}</style>
+
+      
     </section>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
+import TypingBadge from '../store/TypingBadge'
 
 const Experience = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -69,7 +70,7 @@ const Experience = () => {
     <section
       id="experience"
       ref={sectionRef}
-      className="relative py-20 lg:py-32 overflow-hidden bg-[#fff7ec]"
+      className="relative py-20 lg:py-32 overflow-hidden bg-[#fff9f1fff9f1] -mt-20"
     >
       {/* Snow Effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -100,13 +101,12 @@ const Experience = () => {
             isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <span className="inline-block px-4 py-2 bg-purple-100 text-purple-600 rounded-full text-sm font-semibold mb-4 border border-purple-200">
-            Career Journey
-          </span>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Professional Experience
+          <TypingBadge  text="C:Admin\project\portfolio> git add experience" className="text-green-400" />
+
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-200 mb-4">
+        Experience
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto">
             Building expertise through hands-on projects and professional collaborations
           </p>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full mt-6"></div>
@@ -224,27 +224,6 @@ const Experience = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Call to Action */}
-        <div
-          className={`text-center mt-16 transition-all duration-1000 delay-500 transform ${
-            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-          }`}
-        >
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 shadow-xl">
-            <h3 className="text-2xl font-bold text-white mb-3">Interested in working together?</h3>
-            <p className="text-blue-50 mb-6">I'm always open to discussing new projects and opportunities.</p>
-            <a
-              href="#contact"
-              className="inline-flex items-center space-x-2 px-8 py-4 bg-white text-blue-600 rounded-full font-semibold shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300"
-            >
-              <span>Get In Touch</span>
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
           </div>
         </div>
       </div>

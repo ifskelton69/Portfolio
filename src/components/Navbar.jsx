@@ -58,16 +58,13 @@ const Navbar = () => {
             className="flex items-center space-x-3 group hover:scale-105 transition-transform duration-300"
           >
             {/* Logo Icon with Initials */}
-            <div className="relative">
-              <div className="w-11 h-11 bg-gradient-to-br from-[#c7bba5] via-[#C8B6A6] to-[#634630] rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:rotate-6">
-                <span className="text-white font-bold text-lg">AB</span>
-              </div>
-              <div className="absolute -bottom-1 -right-1 w-3 h-3 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full animate-pulse"></div>
+            <div className="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg group-hover:bg-white/20 transition-all duration-300">
+              <span className="font-bold text-lg bg-gradient-to-br from-cyan-300 to-purple-300 bg-clip-text text-transparent">AB</span>
             </div>
 
             {/* Name */}
             <div className="flex flex-col">
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent leading-tight">
+              <span className="text-xl font-bold bg-cyan-400/85 bg-clip-text text-transparent leading-tight">
                 Aditya Birajdar
               </span>
 
@@ -76,8 +73,8 @@ const Navbar = () => {
 
           {/* Desktop Navigation - Centered with rounded dark background */}
           <div className={`hidden md:flex items-center space-x-1 px-6 py-3 rounded-full transition-all duration-300 ${isScrolled
-              ? 'bg-black/60 backdrop-blur-md shadow-lg border border-white/10'
-              : 'bg-black/40 backdrop-blur-sm shadow-md border border-white/5'
+            ? 'bg-black/60 backdrop-blur-md shadow-lg border border-white/10'
+            : 'bg-black/40 backdrop-blur-sm shadow-md border border-white/5'
             }`}>
             {navItems.map((item) => (
               <a
@@ -85,15 +82,15 @@ const Navbar = () => {
                 href={item.href}
                 onClick={() => handleNavClick(item.href, item.name)}
                 className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${activeSection === item.name.toLowerCase()
-                    ? 'text-blue-400'
-                    : 'text-gray-300 hover:text-blue-400'
+                  ? 'text-blue-400'
+                  : 'text-gray-300 hover:text-blue-400'
                   }`}
               >
                 {item.name}
                 <span
                   className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transform origin-left transition-transform duration-300 ${activeSection === item.name.toLowerCase()
-                      ? 'scale-x-100'
-                      : 'scale-x-0 group-hover:scale-x-100'
+                    ? 'scale-x-100'
+                    : 'scale-x-0 group-hover:scale-x-100'
                     }`}
                 />
               </a>
@@ -102,8 +99,8 @@ const Navbar = () => {
 
           {/* CTA Button - Desktop - Always Visible and Fixed */}
           <a
-            href="mailto:adityabirajdar0305@gmail.com"
-            className="hidden md:block px-6 py-2.5 bg-[#12529ba5] text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
+            href="#contact"
+            className="hidden md:block px-6 py-2.5 bg-[#1C7DF1] text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
           >
             Let's Talk
           </a>
@@ -142,8 +139,8 @@ const Navbar = () => {
                 href={item.href}
                 onClick={() => handleNavClick(item.href, item.name)}
                 className={`px-4 py-3 text-sm font-medium rounded-lg transition-all duration-300 ${activeSection === item.name.toLowerCase()
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
-                    : 'text-gray-300 hover:bg-white/10'
+                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                  : 'text-gray-300 hover:bg-white/10'
                   }`}
                 style={{ animationDelay: `${index * 50}ms` }}
               >
@@ -171,8 +168,8 @@ const Navbar = () => {
           >
             <div
               className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${activeSection === item.name.toLowerCase()
-                  ? 'border-blue-400 bg-blue-400 scale-125'
-                  : 'border-gray-400 bg-transparent hover:border-blue-400 hover:scale-110'
+                ? 'border-blue-400 bg-blue-400 scale-125'
+                : 'border-gray-400 bg-transparent hover:border-blue-400 hover:scale-110'
                 }`}
             />
             <span className="absolute right-6 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
