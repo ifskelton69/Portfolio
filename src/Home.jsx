@@ -7,6 +7,7 @@ import Experience from "./components/Experience"
 import Footer from "./components/Footer"
 function Home() {
   return (
+    
     <div className="bg-[#fff9f1fff9f1] min-h-screen">
       <Navbar />
       <Hero />

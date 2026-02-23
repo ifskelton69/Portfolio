@@ -15,7 +15,7 @@ const Navbar = () => {
         element: document.getElementById(item.href.replace('#', ''))
       }))
 
-      const scrollPosition = window.scrollY + 100 // Offset for better detection
+      const scrollPosition = window.scrollY + window.innerHeight * 0.4 // Offset for better detection
 
       for (let i = sections.length - 1; i >= 0; i--) {
         const section = sections[i]
@@ -40,7 +40,7 @@ const Navbar = () => {
     { name: 'Skills', href: '#skills' },
     { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'footer', href: '#footer' }
   ]
 
   const handleNavClick = (href, name) => {
@@ -73,8 +73,8 @@ const Navbar = () => {
 
           {/* Desktop Navigation - Centered with rounded dark background */}
           <div className={`hidden md:flex items-center space-x-1 px-6 py-3 rounded-full transition-all duration-300 ${isScrolled
-            ? 'bg-black/60 backdrop-blur-md shadow-lg border border-white/10'
-            : 'bg-black/40 backdrop-blur-sm shadow-md border border-white/5'
+            ? 'bg-black/20 backdrop-blur-md shadow-lg border border-white/10'
+            : 'bg-[#313131] backdrop-blur-sm shadow-md border border-white/5'
             }`}>
             {navItems.map((item) => (
               <a
@@ -99,8 +99,8 @@ const Navbar = () => {
 
           {/* CTA Button - Desktop - Always Visible and Fixed */}
           <a
-            href="#contact"
-            className="hidden md:block px-6 py-2.5 bg-[#1C7DF1] text-white rounded-full font-medium hover:shadow-lg hover:scale-105 transition-all duration-300"
+            href="#footer"
+            className="hidden md:block px-6 py-2.5 bg-[#1c7cf1ca] text-white rounded-full font-medium hover:shadow-lg hover:scale-105 hover:bg-amber-500 transition-all duration-300"
           >
             Let's Talk
           </a>
@@ -148,8 +148,8 @@ const Navbar = () => {
               </a>
             ))}
             <a
-              href="#contact"
-              className="px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium text-center hover:shadow-lg transition-all duration-300"
+              href="#footer"
+              className="px-4 py-3 bg-blue-600 text-white rounded-lg font-medium text-center hover:shadow-lg transition-all hover:bg-amber-500 duration-300"
             >
               Let's Talk
             </a>

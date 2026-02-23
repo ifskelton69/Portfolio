@@ -42,7 +42,7 @@ const Experience = () => {
         'Implemented modern design patterns and best practices'
       ],
       technologies: ['React', 'JavaScript', 'Tailwind CSS', 'Git'],
-      icon: '💻',
+      icon: '2',
       color: 'from-blue-500 to-cyan-500'
     },
     {
@@ -61,7 +61,7 @@ const Experience = () => {
         'Collaborated with cross-functional teams'
       ],
       technologies: ['Python', 'Backend Development', 'Automation', 'Git'],
-      icon: '🐍',
+      icon: '1',
       color: 'from-green-500 to-emerald-500'
     }
   ]
@@ -109,7 +109,11 @@ const Experience = () => {
           <p className="text-gray-400 max-w-2xl mx-auto">
             Building expertise through hands-on projects and professional collaborations
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-600 to-blue-600 mx-auto rounded-full mt-6"></div>
+         <div className="flex items-center justify-center gap-3 mt-6">
+            <div className="h-px w-84 bg-gradient-to-r from-transparent to-blue-500" />
+            <div className="w-1.5 h-1.5 rotate-45 bg-violet-200" />
+            <div className="h-px w-84 bg-gradient-to-l from-transparent to-violet-500" />
+          </div>
         </div>
 
         {/* Timeline */}
