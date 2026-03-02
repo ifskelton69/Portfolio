@@ -131,16 +131,16 @@ const Hero = () => {
 
               {/* ✅ LeetCode — fixed: removed duplicate href */}
               <a
-                href="https://leetcode.com/u/if_skelton/"
+                href="mailto:adityabirajdar0305@gmail.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center border border-gray-200 hover:border-blue-500 hover:bg-blue-50 hover:scale-110 transition-all duration-300 group"
-                aria-label="LeetCode"
+                aria-label="Email"
               >
                 <Mail className="w-5 h-5 text-gray-700 group-hover:text-blue-600 transition-colors" />
               </a>
               <a
-                href="mailto:adityabirajdar0305@gmail.com"
+                href="https://leetcode.com/u/if_skelton/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center border border-gray-200 hover:border-blue-500 hover:bg-blue-50 hover:scale-110 transition-all duration-300 group"

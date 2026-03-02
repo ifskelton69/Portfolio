@@ -3,70 +3,51 @@ import TypingBadge from '../store/TypingBadge'
 
 const projects = [
   {
+    title: 'APERA - Sentiment Analysis',
+    category: 'ai',
+    image: '/project_img/chat_app.png',
+    description: 'NLP-based tool that processes and analyzes text data to determine emotional tone and sentiment patterns.',
+    technologies: ['Python', 'NLP', 'Machine Learning', 'Flask'],
+    color: 'from-emerald-500 to-teal-400',
+    accent: '#10b981',
+    github: 'https://github.com/ifskelton69/qwik_chat.git',
+    live: '#',
+    highlights: ['NLP Processing', 'Sentiment Detection', 'Data Visualization']
+  },
+  {
     title: 'ResumeAI',
     category: 'ai',
     description: 'AI-powered resume builder that creates professional, ATS-friendly resumes with intelligent content suggestions and multiple templates.',
     technologies: ['React', 'Node.js', 'NLP', 'MongoDB'],
     color: 'from-blue-500 to-cyan-400',
     accent: '#3b82f6',
-    github: '#',
+    github: 'https://github.com/AniketBankar2004/AlgoArchitects-HackSprint.git',
     live: '#',
     highlights: ['AI Content Generation', 'ATS Optimization', 'Multiple Templates']
   },
   {
     title: 'Real-time Chat App',
     category: 'fullstack',
+    image: '/chat_app.png',
     description: 'Feature-rich chat application with real-time messaging, typing indicators, and file sharing via Socket.IO.',
     technologies: ['React', 'Node.js', 'Socket.IO', 'MongoDB'],
     color: 'from-violet-500 to-purple-400',
     accent: '#8b5cf6',
-    github: '#',
-    live: '#',
+    github: 'https://github.com/ifskelton69/qwik-chat.git',
+    live: 'https://qwik-chat.onrender.com/',
     highlights: ['Real-time Messaging', 'File Sharing', 'User Authentication']
   },
   {
-    title: 'APERA - Sentiment Analysis',
-    category: 'ai',
-    description: 'NLP-based tool that processes and analyzes text data to determine emotional tone and sentiment patterns.',
-    technologies: ['Python', 'NLP', 'Machine Learning', 'Flask'],
-    color: 'from-emerald-500 to-teal-400',
-    accent: '#10b981',
-    github: '#',
-    live: '#',
-    highlights: ['NLP Processing', 'Sentiment Detection', 'Data Visualization']
-  },
-  {
-    title: 'Answer Sheet Evaluator',
-    category: 'ai',
-    description: 'OCR-powered system for automated evaluation of answer sheets with intelligent text recognition and grading.',
-    technologies: ['Python', 'OCR', 'OpenCV', 'TensorFlow'],
-    color: 'from-orange-500 to-red-400',
-    accent: '#f97316',
-    github: '#',
-    live: '#',
-    highlights: ['OCR Technology', 'Auto Grading', 'Text Recognition']
-  },
-  {
-    title: 'Animated Portfolio',
-    category: 'frontend',
-    description: 'Modern portfolio with smooth GSAP animations and Locomotive Scroll for an engaging user experience.',
-    technologies: ['React', 'GSAP', 'Locomotive Scroll', 'Tailwind CSS'],
+    title: 'EcoSimple - Environmental Rewards',
+    category: 'fullstack',
+    image: '/ecosimple.png',
+    description: 'EcoSimple rewards you for eco-friendly actions, turning sustainability into a fun and impactful experience. Track weather and environmental data while earning rewards for green actions.',
+    technologies: ['React', 'Flask', 'GSAP', 'Locomotive Scroll', 'Tailwind CSS', 'Weather API'],
     color: 'from-indigo-500 to-blue-400',
     accent: '#6366f1',
-    github: '#',
-    live: '#',
-    highlights: ['Smooth Animations', 'Scroll Effects', 'Modern Design']
-  },
-  {
-    title: 'E-Commerce Platform',
-    category: 'fullstack',
-    description: 'Full-featured e-commerce platform with product management, cart functionality, and secure payment integration.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    color: 'from-yellow-500 to-orange-400',
-    accent: '#eab308',
-    github: '#',
-    live: '#',
-    highlights: ['Payment Gateway', 'Admin Dashboard', 'Order Management']
+    github: 'https://github.com/ifskelton69/Ecosimple.git',
+    live: 'https://ecosimple-gg9gphrts-aditya-birajdars-projects.vercel.app/',
+    highlights: ['Real-time Alert', 'Scroll Effects', 'Modern Design', 'Weather Integration', 'Fullstack Backend with Flask']
   }
 ]
 
@@ -88,24 +69,24 @@ const ProjectCard = ({ project, index, isVisible }) => {
         opacity: isVisible ? 1 : 0,
         transform: isVisible ? 'translateY(0)' : 'translateY(40px)',
         transition: `opacity 0.5s ease, transform 0.5s ease`,
-        transitionDelay: `${index * 100}ms`
+        transitionDelay: `${index * 100}ms`,
+        position: 'relative',
+        zIndex: hovered ? 10 : 1,
       }}
-      className="relative group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden cursor-pointer hover:border-white/20 transition-colors duration-300"
+      className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm cursor-pointer hover:border-white/20 transition-colors duration-300"
     >
-      {/* Top gradient bar */}
-      {/* <div className={`h-1 w-full bg-gradient-to-r ${project.color}`} /> */}
-
       {/* Glow on hover */}
       <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{ background: `radial-gradient(ellipse at top, ${project.accent}18 0%, transparent 70%)` }}
       />
+
       {/* Hover Image Preview */}
       <div
-        className="overflow-hidden transition-all duration-500 ease-in-out"
+        className="overflow-hidden rounded-t-2xl transition-all duration-500 ease-in-out"
         style={{ maxHeight: hovered ? '180px' : '0' }}
       >
-        <div className={`relative w-full h-44 bg-gradient-to-br ${project.color} flex items-center justify-center`}>
+        <div className={`relative w-full h-44 bg-gradient-to-br ${project.color} overflow-hidden`}>
           {project.image ? (
             <img
               src={project.image}
@@ -113,18 +94,18 @@ const ProjectCard = ({ project, index, isVisible }) => {
               className="w-full h-full object-cover object-top"
             />
           ) : (
-            // Placeholder until you add real screenshots
-            <div className="flex flex-col items-center gap-2 opacity-40">
+            <div className="flex flex-col items-center justify-center gap-2 opacity-40 h-full">
               <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              <span className="text-white text-xs font-mono">screenshot coming soon</span>
+              <span className="text-white text-xs font-mono">coming soon</span>
             </div>
           )}
           {/* Gradient fade at bottom */}
           <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#0f172a] to-transparent" />
         </div>
       </div>
+
       <div className="p-6">
         {/* Header */}
         <div className="flex items-start justify-between mb-3">
@@ -143,7 +124,7 @@ const ProjectCard = ({ project, index, isVisible }) => {
 
         {/* Highlights - slide in on hover */}
         <div
-          className="overflow-hidden transition-all duration-400 ease-in-out"
+          className="overflow-hidden"
           style={{ maxHeight: hovered ? '120px' : '0', opacity: hovered ? 1 : 0, transition: 'max-height 0.35s ease, opacity 0.3s ease' }}
         >
           <ul className="mb-4 space-y-1">
@@ -185,7 +166,7 @@ const ProjectCard = ({ project, index, isVisible }) => {
             href={project.live}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-cyan-400 text-black border-b-gray-500 text-sm font-medium hover:opacity-90 hover:scale-[1.02] transition-all duration-200`}
+            className="flex-1 flex items-center justify-center gap-2 py-2 rounded-lg bg-cyan-400 text-black text-sm font-medium hover:opacity-90 hover:scale-[1.02] transition-all duration-200"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -220,7 +201,7 @@ const Projects = () => {
     <section
       id="projects"
       ref={sectionRef}
-      className="relative py-24 lg:py-32 overflow-hidden "
+      className="relative py-24 lg:py-32 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/8 rounded-full blur-3xl pointer-events-none" />
@@ -274,8 +255,8 @@ const Projects = () => {
               key={f.id}
               onClick={() => setActiveFilter(f.id)}
               className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${activeFilter === f.id
-                  ? 'bg-gradient-to-r from-blue-600 to-blue-800 text-white border-transparent shadow-lg shadow-blue-500/20 scale-105'
-                  : 'bg-white/5 border-white/10 text-gray-400 hover:text-white hover:border-white/20'
+                ? 'bg-gradient-to-r from-blue-600 to-blue-800 text-white border-transparent shadow-lg shadow-blue-500/20'
+                : 'bg-white/5 border-white/10 text-gray-400 hover:text-white hover:border-white/20'
                 }`}
             >
               {f.label}
@@ -284,7 +265,7 @@ const Projects = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
           {filtered.map((project, index) => (
             <ProjectCard
               key={project.title}
