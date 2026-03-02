@@ -5,7 +5,7 @@ const projects = [
   {
     title: 'APERA - Sentiment Analysis',
     category: 'ai',
-    image: '/project_img/chat_app.png',
+    image: '/apera.png',
     description: 'NLP-based tool that processes and analyzes text data to determine emotional tone and sentiment patterns.',
     technologies: ['Python', 'NLP', 'Machine Learning', 'Flask'],
     color: 'from-emerald-500 to-teal-400',
