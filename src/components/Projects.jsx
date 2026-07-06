@@ -48,6 +48,18 @@ const projects = [
     github: 'https://github.com/ifskelton69/Ecosimple.git',
     live: 'https://ecosimple-gg9gphrts-aditya-birajdars-projects.vercel.app/',
     highlights: ['Real-time Alert', 'Scroll Effects', 'Modern Design', 'Weather Integration', 'Fullstack Backend with Flask']
+  },
+  {
+    title: 'AI ChatBot - Real-time Conversational App',
+    category: 'Ai',
+    image: '/chatbot.png',
+    description: 'AI-powered chatbot that enables real-time conversations using modern web technologies and Hugging Face models. Supports dynamic responses, clean UI, and scalable backend architecture.',
+    technologies: ['React', 'Express', 'Hugging Face API', 'Tailwind CSS'],
+    color: 'from-green-500 to-emerald-400',
+    accent: '#10b981',
+    github: 'https://github.com/ifskelton69/chatbot.git',
+    live: 'https://chatbot-delta-inky.vercel.app/',
+    highlights: ['Real-time Chat', 'AI Responses', 'REST API Integration', 'Clean UI']
   }
 ]
 

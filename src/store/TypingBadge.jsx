@@ -26,7 +26,7 @@ function TypingBadge({ text, className = "" }) {
   return (
     <span className={`font-mono text-sm mb-4 inline-block ${className}`}>
       {displayed}
-      {!done && <span className="animate-pulse text-red-800">|</span>}
+      {!done && <span className="animate-pulse text-red-200">|</span>}
     </span>
   )
 }
