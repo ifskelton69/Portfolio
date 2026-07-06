@@ -11,7 +11,7 @@ const projects = [
     color: 'from-emerald-500 to-teal-400',
     accent: '#10b981',
     github: 'https://github.com/ifskelton69/qwik_chat.git',
-    live: '#',
+    live: 'https://apera-omega.vercel.app/',
     highlights: ['NLP Processing', 'Sentiment Detection', 'Data Visualization']
   },
   {
