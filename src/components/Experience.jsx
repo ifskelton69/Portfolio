@@ -9,9 +9,8 @@ const work = [
     duration: "Dec 2025 - Feb 2026",
     logo: "/saiket.png",
     points: [
-      "Designed and implemented responsive web interfaces using React and Tailwind CSS, improving usability across devices.",
-      "Optimized frontend performance and user experience, and contributed to feature integration and real-world deployment workflows.",
-      "Applied modern design patterns and best practices while collaborating with the team on feature development.",
+      "Implemented robust CRUD operations and data management modules using Node.js and MongoDB, streamliningapplication functionality and improving data integrity by 25%.",
+      "Collaborated with the frontend team to integrate backend services, tested API endpoints using Postman, and resolvedintegration issues to ensure seamless application functionality and reliable performance.",
     ],
     links: [{ label: "Website", href: "https://saiket.in/" }],
   },
@@ -21,9 +20,8 @@ const work = [
     duration: "Jun 2023 - Aug 2023",
     logo: "/ais.jpeg",
     points: [
-      "Developed Python scripts to support backend processes and automation workflows.",
-      "Debugged and improved code efficiency, applying structured programming practices within a collaborative team.",
-      "Worked with cross-functional teams and used Git for version control.",
+      "Built a job recommendation system using supervised machine learning, performing data preprocessing, featureengineering, and candidate profiling to improve job-role matching.",
+      "Applied Label Encoding and feature vectorization on 50+ skill features, and evaluated models using Precision, Recall,and F1-score to optimize recommendation accuracy.",
     ],
     links: [{ label: "Website", href: "https://aissolutions.net/" }],
   },

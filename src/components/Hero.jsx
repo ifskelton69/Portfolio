@@ -52,7 +52,7 @@ const Hero = () => {
             </button>
 
             <iframe
-              src="/Aditya_Birajdar_SDE_Intern_Resume.pdf"
+              src="/Aditya_Birajdar_Resume.pdf"
               className="w-full h-full"
               title="Resume"
             />
