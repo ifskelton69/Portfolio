@@ -61,7 +61,7 @@ const About = () => {
       ref={sectionRef}
       className="bg-[#05060a] py-16 lg:py-24"
     >
-      <div className="mx-auto max-w-3xl px-4 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Header */}
         <div
           className={`text-center mb-16 transition-all duration-1000 transform ${
@@ -75,11 +75,7 @@ const About = () => {
           <h2 className="text-4xl md:text-6xl font-black text-white mt-4 mb-4 tracking-tight">
             <span className="text-[#b1b1b1] bg-clip-text">About</span>
           </h2>
-          <div className="flex items-center justify-center gap-3 mt-6 mb-6">
-            <div className="h-px w-24 sm:w-40 bg-gradient-to-r from-transparent to-blue-500" />
-            <div className="w-1.5 h-1.5 rotate-45 bg-violet-200" />
-            <div className="h-px w-24 sm:w-40 bg-gradient-to-l from-transparent to-blue-500" />
-          </div>
+          
         </div>
 
         {/* Main card */}
@@ -106,7 +102,7 @@ const About = () => {
           </div>
 
           {/* Stats */}
-          <div className="mt-6 ml-15 grid grid-cols-3 sm:grid-cols-3 gap-3 border-t border-white/10 pt-5">
+          <div className="mt-6 ml-24 grid grid-cols-3 sm:grid-cols-3 gap-3 border-t border-white/10 pt-5">
             {" "}
             {stats.map((s) => (
               <div key={s.label}>

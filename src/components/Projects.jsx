@@ -110,10 +110,10 @@ const ProjectCard = ({ project, index, isVisible }) => {
         className="overflow-hidden rounded-t-2xl transition-all duration-500 ease-in-out"
         style={{ maxHeight: hovered ? "180px" : "0" }}
       >
-        <div
+        {/* <div
           className={`relative w-full h-44 bg-gradient-to-br ${project.color} overflow-hidden`}
-        >
-          {project.image ? (
+        > */}
+          {/* {project.image ? (
             <img
               src={project.image}
               alt={project.title}
@@ -136,10 +136,10 @@ const ProjectCard = ({ project, index, isVisible }) => {
               </svg>
               <span className="text-white text-xs font-mono">coming soon</span>
             </div>
-          )}
+          )} */}
           {/* Gradient fade at bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#0f172a] to-transparent" />
-        </div>
+          {/* <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#0f172a] to-transparent" /> */}
+        {/* </div> */}
       </div>
 
       <div className="p-6">

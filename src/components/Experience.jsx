@@ -174,7 +174,7 @@ const Experience = () => {
       id="experience"
       className="bg-[#05060a] py-16 lg:py-24"
     >
-      <div className="mx-auto max-w-3xl px-4 sm:px-6">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
         <div
           className={`text-center mb-16 transition-all duration-1000 transform ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
