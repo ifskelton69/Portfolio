@@ -5,9 +5,9 @@ import TypingBadge from "../store/TypingBadge";
 const work = [
   {
     company: "Saiket System",
-    role: "Web Developer",
+    role: "Software Engineer",
     duration: "Dec 2025 - Feb 2026",
-    logo: "/saiket.png",
+    logo: "/saiket-logo.webp",
     points: [
       "Implemented robust CRUD operations and data management modules using Node.js and MongoDB, streamliningapplication functionality and improving data integrity by 25%.",
       "Collaborated with the frontend team to integrate backend services, tested API endpoints using Postman, and resolvedintegration issues to ensure seamless application functionality and reliable performance.",
