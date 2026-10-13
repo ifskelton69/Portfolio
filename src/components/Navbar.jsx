@@ -1,185 +1,167 @@
-import { useState, useEffect } from 'react'
+import { Sun, Moon } from "lucide-react";
+import { useState, useEffect } from "react";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState('home')
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navItems = [
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    // { name: "Skills", href: "#skills" },
+    { name: "Experience", href: "#experience" },
+    { name: "Projects", href: "#projects" },
+  ];
+
+  const [isDark, setIsDark] = useState(
+    () => localStorage.getItem("theme") !== "light",
+  );
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  }, [isDark]);
+
+  const toggleTheme = () => {
+    setIsDark((previous) => !previous);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
+      setIsScrolled(window.scrollY > 20);
 
-      // Scroll Spy - Update active section based on scroll position
-      const sections = navItems.map(item => ({
-        id: item.href.replace('#', ''),
-        element: document.getElementById(item.href.replace('#', ''))
-      }))
+      const position = window.scrollY + window.innerHeight * 0.4;
 
-      const scrollPosition = window.scrollY + window.innerHeight * 0.4 // Offset for better detection
+      for (let i = navItems.length - 1; i >= 0; i--) {
+        const section = document.getElementById(navItems[i].href.slice(1));
 
-      for (let i = sections.length - 1; i >= 0; i--) {
-        const section = sections[i]
-        if (section.element) {
-          const sectionTop = section.element.offsetTop
-          if (scrollPosition >= sectionTop) {
-            setActiveSection(section.id)
-            break
-          }
+        if (section && position >= section.offsetTop) {
+          setActiveSection(navItems[i].name.toLowerCase());
+          break;
         }
       }
-    }
+    };
 
-    handleScroll() // Call once on mount
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'footer', href: '#footer' }
-  ]
-
-  const handleNavClick = (href, name) => {
-    setActiveSection(name.toLowerCase())
-    setIsMobileMenuOpen(false)
-  }
+  const handleNavClick = (name) => {
+    setActiveSection(name.toLowerCase());
+    setIsMobileMenuOpen(false);
+  };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 py-6">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex items-center justify-between">
-          {/* Logo - Always Visible and Fixed */}
-          <a
-            href="#home"
-            className="flex items-center space-x-3 group hover:scale-105 transition-transform duration-300"
+    <nav className="fixed top-0 inset-x-0 z-50">
+      <div className="max-w-6xl mx-auto px-6 pt-5">
+        {" "}
+        <div className="flex items-center justify-center">
+          {" "}
+          {/* Desktop navigation */}{" "}
+          <div
+            className={`hidden md:flex items-center gap-10 rounded-2xl px-6 py-4 border transition-all duration-300 ${isScrolled ? "bg-transparent backdrop-blur-none border-transparent shadow-none" : "bg-slate-900/30 backdrop-blur-xl border-white/5 shadow-lg shadow-black/10"}`}
           >
-            {/* Logo Icon with Initials */}
-            <div className="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg group-hover:bg-white/20 transition-all duration-300">
-              <span className="font-bold text-lg bg-gradient-to-br from-cyan-300 to-purple-300 bg-clip-text text-transparent">AB</span>
-            </div>
-
-            {/* Name */}
-            <div className="flex flex-col">
-              <span className="text-xl font-bold bg-cyan-400/85 bg-clip-text text-transparent leading-tight">
-                Aditya Birajdar
-              </span>
-
-            </div>
-          </a>
-
-          {/* Desktop Navigation - Centered with rounded dark background */}
-          <div className={`hidden md:flex items-center space-x-1 px-6 py-3 rounded-full transition-all duration-300 ${isScrolled
-            ? 'bg-black/20 backdrop-blur-md shadow-lg border border-white/10'
-            : 'bg-[#313131] backdrop-blur-sm shadow-md border border-white/5'
-            }`}>
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                onClick={() => handleNavClick(item.href, item.name)}
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group ${activeSection === item.name.toLowerCase()
-                  ? 'text-blue-400'
-                  : 'text-gray-300 hover:text-blue-400'
+                onClick={() => handleNavClick(item.name)}
+                className={`px-3 py-2 text-lg font-normal lowercase
+                  transition-colors duration-200 ${
+                    activeSection === item.name.toLowerCase()
+                      ? "text-blue-400"
+                      : "text-gray-400 hover:text-blue-400"
                   }`}
               >
                 {item.name}
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-400 transform origin-left transition-transform duration-300 ${activeSection === item.name.toLowerCase()
-                    ? 'scale-x-100'
-                    : 'scale-x-0 group-hover:scale-x-100'
-                    }`}
-                />
               </a>
             ))}
           </div>
-
-          {/* CTA Button - Desktop - Always Visible and Fixed */}
-          <a
-            href="#footer"
-            className="hidden md:block px-6 py-2.5 bg-[#1c7cf1ca] text-white rounded-full font-medium hover:shadow-lg hover:scale-105 hover:bg-amber-500 transition-all duration-300"
-          >
-            Let's Talk
-          </a>
-
-          {/* Mobile Menu Button */}
+          {/* Mobile hamburger */}
           <button
+            type="button"
+            aria-label="Toggle navigation"
+            aria-expanded={isMobileMenuOpen}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-colors"
+            className="md:hidden flex flex-col justify-center gap-1.5
+              w-10 h-10 items-center rounded-lg
+              bg-slate-900/40 backdrop-blur-xl border border-white/10"
           >
-            <div className="w-6 h-5 flex flex-col justify-between">
-              <span
-                className={`w-full h-0.5 bg-white rounded-full transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''
-                  }`}
-              />
-              <span
-                className={`w-full h-0.5 bg-white rounded-full transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''
-                  }`}
-              />
-              <span
-                className={`w-full h-0.5 bg-white rounded-full transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''
-                  }`}
-              />
-            </div>
+            <span
+              className={`block w-5 h-0.5 bg-current rounded-full
+                transition-transform duration-300 ${
+                  isMobileMenuOpen ? "translate-y-2 rotate-45" : ""
+                }`}
+            />
+            <span
+              className={`block w-5 h-0.5 bg-current rounded-full
+                transition-opacity duration-300 ${
+                  isMobileMenuOpen ? "opacity-0" : ""
+                }`}
+            />
+            <span
+              className={`block w-5 h-0.5 bg-current rounded-full
+                transition-transform duration-300 ${
+                  isMobileMenuOpen ? "-translate-y-2 -rotate-45" : ""
+                }`}
+            />
           </button>
+          {/* Day / Night toggle */}
+          {/* <button
+            type="button"
+            onClick={toggleTheme}
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            title={isDark ? "Light mode" : "Dark mode"}
+            className="p-2 rounded-full text-amber-400
+              hover:bg-white/10 transition-all duration-300"
+          >
+            {isDark ? <Sun size={17} /> : <Moon size={17} />}
+          </button> */}
         </div>
-
-        {/* Mobile Menu */}
+        {/* Mobile dropdown */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ${isMobileMenuOpen ? 'max-h-96 mt-4' : 'max-h-0'
-            }`}
+          className={`md:hidden overflow-hidden transition-all duration-300 ${
+            isMobileMenuOpen
+              ? "max-h-96 opacity-100 mt-3"
+              : "max-h-0 opacity-0 mt-0"
+          }`}
         >
-          <div className="flex flex-col space-y-2 py-4 bg-black/60 backdrop-blur-md rounded-2xl shadow-xl px-4 border border-white/10">
-            {navItems.map((item, index) => (
+          <div
+            className="flex flex-col gap-1 p-3 rounded-xl
+              bg-slate-950/90 backdrop-blur-xl
+              border border-white/10 shadow-xl"
+          >
+            {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                onClick={() => handleNavClick(item.href, item.name)}
-                className={`px-4 py-3 text-sm font-medium rounded-lg transition-all duration-300 ${activeSection === item.name.toLowerCase()
-                  ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
-                  : 'text-gray-300 hover:bg-white/10'
+                onClick={() => handleNavClick(item.name)}
+                className={`px-4 py-3 text-sm lowercase rounded-lg
+                  transition-colors ${
+                    activeSection === item.name.toLowerCase()
+                      ? "text-white bg-white/10"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
                   }`}
-                style={{ animationDelay: `${index * 50}ms` }}
               >
                 {item.name}
               </a>
             ))}
+
             <a
               href="#footer"
-              className="px-4 py-3 bg-blue-600 text-white rounded-lg font-medium text-center hover:shadow-lg transition-all hover:bg-amber-500 duration-300"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="px-4 py-3 text-sm text-gray-300
+                hover:text-white rounded-lg hover:bg-white/5"
             >
-              Let's Talk
+              let's talk
             </a>
           </div>
         </div>
       </div>
-
-      {/* Floating Indicator Dots */}
-      <div className="hidden lg:flex fixed right-8 top-1/2 -translate-y-1/2 flex-col space-y-4 z-50">
-        {navItems.map((item) => (
-          <a
-            key={item.name}
-            href={item.href}
-            onClick={() => handleNavClick(item.href, item.name)}
-            className="group relative"
-          >
-            <div
-              className={`w-3 h-3 rounded-full border-2 transition-all duration-300 ${activeSection === item.name.toLowerCase()
-                ? 'border-blue-400 bg-blue-400 scale-125'
-                : 'border-gray-400 bg-transparent hover:border-blue-400 hover:scale-110'
-                }`}
-            />
-            <span className="absolute right-6 top-1/2 -translate-y-1/2 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
-              {item.name}
-            </span>
-          </a>
-        ))}
-      </div>
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

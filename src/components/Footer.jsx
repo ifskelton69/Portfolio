@@ -56,7 +56,6 @@ const handleSubmit = (e) => {
 
   return (
     <footer id="footer" className="relative bg-[#fff9f1fff9f1] overflow-hidden">
-      <div className="h-px bg-gradient-to-r from-transparent via-gray-300 to-[#56e592] mb-8"></div>
       {/* Snow Effect */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
@@ -85,13 +84,9 @@ const handleSubmit = (e) => {
           {/* Brand Section */}
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center shadow-lg group-hover:bg-white/20 transition-all duration-300">
-                <span className="font-bold text-lg bg-gradient-to-br from-cyan-300 to-purple-300 bg-clip-text text-transparent">AB</span>
-              </div>
+              
               <div>
-                <h3 className="text-2xl font-bold bg-cyan-400/85 bg-clip-text text-transparent">
-                  Aditya Birajdar
-                </h3>
+                
               </div>
             </div>
 
@@ -106,7 +101,7 @@ const handleSubmit = (e) => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center border border-gray-200 text-gray-700 hover:text-white hover:bg-gradient-to-r hover:bg-amber-600 hover:border-transparent hover:scale-110 transition-all duration-300 shadow-md"
+                  className="w-10 h-10 bg-white rounded-full flex items-center justify-center border border-gray-200 text-gray-700 hover:text-white hover:bg-gradient-to-r hover:bg-gray-600 hover:border-transparent hover:scale-110 transition-all duration-300 shadow-md"
                   aria-label={social.name}
                 >
                   {social.icon}
@@ -136,7 +131,7 @@ const handleSubmit = (e) => {
           </div>
           {/* Contact Form */}
           <div>
-            <h4 className="text-lg font-bold text-gray-900 mb-4">Send a Message</h4>
+            <h4 className="text-lg font-bold text-gray-400 mb-4">Send a Message</h4>
             <form onSubmit={handleSubmit} className="space-y-3">
               <input
                 type="text"
@@ -168,7 +163,7 @@ const handleSubmit = (e) => {
               <button
                 type="submit"
                 disabled={status === 'sending'}
-                className="w-full py-2 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 text-white text-sm font-semibold hover:opacity-90 hover:scale-[1.02] transition-all duration-300 disabled:opacity-50"
+                className="w-full py-2 rounded-lg bg-blue-700 text-white text-sm font-semibold hover:opacity-90 hover:scale-[1.02] transition-all duration-300 disabled:opacity-50"
               >
                 {status === 'sending' ? 'Opening...' : status === 'sent' ? '✓ Done!' : 'Send Message'}
               </button>
@@ -176,39 +171,7 @@ const handleSubmit = (e) => {
           </div>
 
         </div>
-
-
-
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-          <div className="text-center md:text-left">
-            <p className="text-gray-200 text-sm">
-              © {currentYear} <span className="font-semibold text-amber-200">Aditya Birajdar</span>. All rights reserved.
-            </p>
-            <p className="text-gray-500 text-xs mt-1">
-              Built with ❤️ using React & Tailwind CSS
-            </p>
-          </div>
-
-          <div className="flex items-center space-x-6 text-sm">
-            <a href="#" className="text-gray-300 hover:text-blue-600 transition-colors duration-300">
-              Privacy Policy
-              <span className="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-orange-500 to-yellow-400 group-hover:w-full transition-all duration-500 ease-out" />
-            </a>
-            <span className="text-gray-400">•</span>
-            <a href="#" className="text-gray-300 hover:text-blue-600 transition-colors duration-300">
-              Terms of Service
-            </a>
-          </div>
-        </div>
-
-        {/* Back to Top Button */}
-        <div className="mt-8 text-center">
-          <a href="#home" className="inline-flex items-center gap-2 font-mono text-sm text-gray-400 hover:text-green-400 transition-all duration-300">
-            <span className="text-green-400">➜</span>
-            <span className="hover:underline underline-offset-4">cd ~/home</span>
-          </a>
-        </div>
+        
       </div>
 
       {/* CSS for snow animation */}

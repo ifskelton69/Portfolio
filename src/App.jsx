@@ -1,16 +1,14 @@
-import { Routes, Route } from "react-router-dom"
-import Home from "./Home"
+import { Routes, Route } from "react-router-dom";
+import Home from "./Home";
 
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#1e3a8a]
-
-">
+    <div className="min-h-screen bg-white text-gray-900 transition-colors duration-300 dark:bg-[#060606] dark:text-white">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
