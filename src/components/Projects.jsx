@@ -7,7 +7,7 @@ const projects = [
     category: "fullstack",
     image: "/finally-placed.png",
     description:
-      "Built a full-stack placement assistant with AI-powered job matching, resume parsing, and mock interviews.",
+      "All-in-one Placement Prep Platform built with React, offering resume management, DSA tracking, curated resources, and AI interview feedback — everything to boost your job readiness.",
     technologies: ["React", "Node.js", "MongoDB", "AI APIs"],
     color: "from-indigo-500 to-blue-400",
     accent: "#6366f1",
@@ -55,7 +55,7 @@ const projects = [
   },
   {
     title: "AI ChatBot - Real-time Conversational App",
-    category: "Ai",
+    category: "ai",
     image: "/chatbot.png",
     description:
       "Chatbot that enables real-time conversations using modern web technologies and Hugging Face models.",
@@ -95,66 +95,29 @@ const ProjectCard = ({ project, index, isVisible }) => {
         position: "relative",
         zIndex: hovered ? 10 : 1,
       }}
-      className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm cursor-pointer hover:border-white/20 transition-colors duration-300"
+      className="group rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm cursor-pointer hover:border-white/30 transition-colors duration-300"
     >
       {/* Glow on hover */}
       <div
-        className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+        className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
         style={{
           background: `radial-gradient(ellipse at top, ${project.accent}18 0%, transparent 70%)`,
         }}
       />
 
-      {/* Hover Image Preview */}
-      <div
-        className="overflow-hidden rounded-t-2xl transition-all duration-500 ease-in-out"
-        style={{ maxHeight: hovered ? "180px" : "0" }}
-      >
-        {/* <div
-          className={`relative w-full h-44 bg-gradient-to-br ${project.color} overflow-hidden`}
-        > */}
-          {/* {project.image ? (
-            <img
-              src={project.image}
-              alt={project.title}
-              className="w-full h-full object-cover object-top"
-            />
-          ) : (
-            <div className="flex flex-col items-center justify-center gap-2 opacity-40 h-full">
-              <svg
-                className="w-10 h-10 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              <span className="text-white text-xs font-mono">coming soon</span>
-            </div>
-          )} */}
-          {/* Gradient fade at bottom */}
-          {/* <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#0f172a] to-transparent" /> */}
-        {/* </div> */}
-      </div>
-
-      <div className="p-6">
+      <div className="p-4 sm:p-5">
         {/* Header */}
-        <div className="flex items-start justify-between mb-3">
-          <h3 className="text-lg font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
+        <div className="flex flex-col-reverse items-start gap-2 mb-3">
+          <h3 className="text-base font-semibold text-white leading-snug">
             {project.title}
           </h3>
-          <span className="text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded-md border border-white/10 text-gray-500">
+          <span className="shrink-0 text-[10px] font-mono uppercase tracking-widest px-2 py-1 rounded-md border border-white/10 text-gray-500">
             {project.category}
           </span>
         </div>
 
         {/* Description */}
-        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+        <p className="text-gray-400 text-[0.92rem] leading-relaxed mb-4">
           {project.description}
         </p>
 
@@ -162,7 +125,7 @@ const ProjectCard = ({ project, index, isVisible }) => {
         <div
           className="overflow-hidden"
           style={{
-            maxHeight: hovered ? "120px" : "0",
+            maxHeight: hovered ? "160px" : "0",
             opacity: hovered ? 1 : 0,
             transition: "max-height 0.35s ease, opacity 0.3s ease",
           }}
@@ -259,7 +222,7 @@ const Projects = () => {
     <section
       id="projects"
       ref={sectionRef}
-      className="relative py-24 lg:py-32 overflow-hidden"
+      className="relative py-16 lg:py-24 overflow-hidden"
     >
       {/* Background */}
       <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/8 rounded-full blur-3xl pointer-events-none" />
@@ -273,10 +236,11 @@ const Projects = () => {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      {/* Same container width as the Experience section */}
+      <div className="relative z-10 mx-auto max-w-3xl px-4 sm:px-6">
         {/* Header */}
         <div
-          className="text-center mb-14"
+          className="text-center mb-10"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(24px)",
@@ -294,7 +258,7 @@ const Projects = () => {
 
         {/* Filter Pills */}
         <div
-          className="flex flex-wrap justify-center gap-2 mb-12"
+          className="flex flex-wrap justify-center gap-2 mb-8"
           style={{
             opacity: isVisible ? 1 : 0,
             transition: "opacity 0.6s ease 0.2s",
@@ -315,8 +279,9 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
+        {/* 2 projects per row (1 on mobile). items-start keeps the other card
+            from stretching when one expands on hover */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-start">
           {filtered.map((project, index) => (
             <ProjectCard
               key={project.title}
@@ -329,7 +294,7 @@ const Projects = () => {
 
         {/* CTA */}
         <div
-          className="text-center mt-14"
+          className="text-center mt-12"
           style={{
             opacity: isVisible ? 1 : 0,
             transition: "opacity 0.6s ease 0.5s",

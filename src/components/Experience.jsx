@@ -174,20 +174,7 @@ const Experience = () => {
       id="experience"
       className="bg-[#05060a] py-16 lg:py-24"
     >
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div
-          className={`text-center mb-16 transition-all duration-1000 transform ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}
-        >
-          <TypingBadge
-            text="C:Admin\project\portfolio> git add Experience.jsx"
-            className="text-gray-300"
-          />
-          <h2 className="text-4xl md:text-6xl font-black text-white mt-4 mb-4 tracking-tight">
-            <span className="text-[#b1b1b1] bg-clip-text">Experience</span>
-          </h2>
-        </div>
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 ">
 
         {/* Tabs */}
         <div
@@ -222,7 +209,7 @@ const Experience = () => {
             {/* vertical line, runs through the logo column */}
             <span
               aria-hidden="true"
-              className="absolute left-6 top-6 bottom-6 w-px -translate-x-1/2 bg-white/10"
+              className="absolute left-6 top-6 bottom-6 w-px -translate-x-1/2 bg-white/40"
             />
             {items.map((item) => (
               <Entry key={item.company} item={item} />

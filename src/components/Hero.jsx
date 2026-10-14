@@ -40,7 +40,7 @@ const Hero = () => {
           onClick={() => setResumeOpen(false)}
         >
           <div
-            className="relative w-full max-w-4xl h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl"
+            className="relative w-full max-w-xl h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}
@@ -61,9 +61,9 @@ const Hero = () => {
       )}
       <section
         id="home"
-        className="relative min-h-screen flex items-center justify-center overflow-hidden text-white"
+        className="relative flex items-center justify-center overflow-hidden text-white"
       >
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none ">
           {[...Array(30)].map((_, i) => (
             <div
               key={i}
@@ -91,16 +91,16 @@ const Hero = () => {
           ></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
-          <div className="grid lg:grid-cols-2  items-center ">
+        <div className="relative z-10 mx-auto w-full max-w-3xl px-5 py-8 sm:py-10 mt-20">
+          {" "}
+          <div className="grid grid-cols-1 sm:grid-cols-[1.2fr_0.8fr] items-center gap-8 sm:gap-10">
+            {" "}
             {/* Left Content */}
-            <div
-              className={`space-y-8 transition-all duration-1000 transform ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-              >
+            <div className="space-y-5">
               {/* Main Heading */}
-              <div className="space-y-4 pt-6">
-                <h1
-                  className="text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.05] tracking-tight"
+              <div className="space-y-3 ">
+                <h3
+                  className="text-2xl sm:text-5xl font-bold leading-tight tracking-tight"
                   style={{ fontFamily: "'DM Serif Display', Georgia, serif" }}
                 >
                   <span className="block text-white">
@@ -112,13 +112,13 @@ const Hero = () => {
                       👋
                     </span>
                   </span>
-                </h1>
+                </h3>
                 <p className="text-base sm:text-lg text-gray-300 font-medium">
                   21-year-old software engineer from India.
                 </p>
                 <p className="text-base sm:text-lg text-gray-400 max-w-xl leading-relaxed">
-                  I create bugs, blame the framework, fix them with more code,
-                  and pray nobody asks how any of it works.
+                  I turn coffee into code, bugs into features, 
+                  and “it works on my machine” into a lifestyle.
                 </p>
               </div>
 
@@ -189,7 +189,7 @@ const Hero = () => {
                 {/* View Resume — opens modal */}
                 <button
                   onClick={() => setResumeOpen(true)}
-                  className="group px-5 py-3 border border-white/15 bg-white/[0.04] text-white rounded-xl font-semibold hover:border-white/30 hover:bg-white/10 transition-all duration-300 flex items-center justify-center space-x-2"
+                  className="flex items-center justify-center gap-2 rounded-lg border border-white/15 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/5"
                 >
                   <span>Resume</span>
                   <svg
@@ -215,15 +215,15 @@ const Hero = () => {
               <div className="absolute -inset-2  opacity-40 blur-2xl rounded-[2rem]" />
 
               {/* gradient border */}
-              <div className="relative mx-auto max-w-xs p-[2px] rounded-[2rem] bg-gradient-to-tr from-[#919090] via-white/10 to-[#919090]">
-                <div className="rounded-[calc(2rem-2px)] overflow-hidden bg-[#0b0614]">
-                  <img
-                    src="/image.png"
-                    alt="Aditya Birajdar"
-                    className="block w-full aspect-square object-cover object-top"
-                  />
-                </div>
+              {/* <div className="relative mx-auto max-w-xs p-[2px] rounded-[2rem] bg-gradient-to-tr from-[#919090] via-white/10 to-[#919090]"> */}
+              <div className="mx-auto w-full max-w-[240px] sm:max-w-[260px]">
+                <img
+                  src="/image.png"
+                  alt="Aditya Birajdar"
+                  className="block w-full aspect-square rounded-2xl object-cover object-top"
+                />
               </div>
+              {/* </div> */}
             </div>
           </div>
         </div>

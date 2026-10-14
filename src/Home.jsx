@@ -10,7 +10,7 @@ function Home() {
     <div className="bg-[#fff9f1fff9f1] min-h-screen">
       <Navbar />
       <Hero />
-      <About />
+      {/* <About /> */}
       {/* <Skills /> */}
       <Experience />
       <Projects />
