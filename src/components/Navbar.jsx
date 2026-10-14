@@ -108,7 +108,7 @@ const Navbar = () => {
         </div>
 
         {/* Theme toggle */}
-        <button
+        {/* <button
           type="button"
           onClick={toggleTheme}
           aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
@@ -119,7 +119,7 @@ const Navbar = () => {
             focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
         >
           {isDark ? <Sun size={17} /> : <Moon size={17} />}
-        </button>
+        </button> */}
       </div>
 
       {/* Mobile dropdown (same width container) */}
